@@ -5,10 +5,17 @@
 #' extended with ggplot2 commands.
 #'
 #' @param data Either a data frame containing (only) dichotomous variables or the output of psych::describe()
+#' @param guess Optional. Indicate the (theoretical) guessing probability.
+#' @param sort Optional. Keep variables in the same order as in the dataset (default), order them ascending order ("asc") or or
+#'             or order them in descending order ("desc").
+#' @param group Optional. Character vector as long as the number of variables indicating their group. Item form different
+#'              groups will have different colors in the plot.
 #' @return A plot of the means with associated errors bars (2*SE)
 #' @export
 
-plot_idiff <- function(data, guess = .25, sort = "orig", group = NULL){
+
+
+plot_idiff <- function(data, guess = .25, sort = NULL, group = NULL){
   
   data <- if(class(data)[2] == "describe") data else psych::describe(data)
   

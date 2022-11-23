@@ -4,10 +4,18 @@
 \alias{plot_idiff}
 \title{Plot proportion correct (difficulty) scores of dichotomous variables}
 \usage{
-plot_idiff(data, guess = 0.25, sort = "orig", group = NULL)
+plot_idiff(data, guess = 0.25, sort = NULL, group = NULL)
 }
 \arguments{
 \item{data}{Either a data frame containing (only) dichotomous variables or the output of psych::describe()}
+
+\item{guess}{Optional. Indicate the (theoretical) guessing probability.}
+
+\item{sort}{Optional. Keep variables in the same order as in the dataset (default), order them ascending order ("asc") or or
+or order them in descending order ("desc").}
+
+\item{group}{Optional. Character vector as long as the number of variables indicating their group. Item form different
+groups will have different colors in the plot.}
 }
 \value{
 A plot of the means with associated errors bars (2*SE)
