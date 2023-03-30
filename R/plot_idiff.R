@@ -35,8 +35,8 @@ plot_idiff <- function(data, guess = .25, sort = NULL, group = NULL){
                     geom_hline(yintercept=guess, linetype = "dashed") +
                     geom_errorbar(aes(ymin=mean-2*se, ymax=mean+2*se, width = 0.3)) +
                     labs(x = "", y = "Item difficulty", caption = "Error bars = 2*SE") +
-                    theme_bw() + 
-    ggeasy::easy_rotate_x_labels(angle = 45, side = "right")
+                    theme_bw() +
+                    theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1))
     
   } else if (sort == "asc") {
       
@@ -54,8 +54,8 @@ plot_idiff <- function(data, guess = .25, sort = NULL, group = NULL){
                     geom_hline(yintercept=guess, linetype = "dashed") +
                     geom_errorbar(aes(ymin=mean-2*se, ymax=mean+2*se, width = 0.3)) +
                     labs(x = "", y = "Item difficulty", caption = "Error bars = 2*SE") +
-                    theme_bw() + 
-    ggeasy::easy_rotate_x_labels(angle = 45, side = "right")
+                    theme_bw() +
+                    theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1))
 
   } else {
 
@@ -72,8 +72,8 @@ plot_idiff <- function(data, guess = .25, sort = NULL, group = NULL){
                     geom_hline(yintercept=guess, linetype = "dashed") + 
                     geom_errorbar(aes(ymin=mean-2*se, ymax=mean+2*se, width = 0.3)) +
                     labs(x = "", y = "Item difficulty", caption = "Error bars = 2*SE") +
-                    theme_bw() + 
-    ggeasy::easy_rotate_x_labels(angle = 45, side = "right")
+                    theme_bw() +
+                    theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1))
             
     }
 }
