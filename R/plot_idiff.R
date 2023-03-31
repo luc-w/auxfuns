@@ -15,66 +15,27 @@
 
 
 
-plot_idiff <- function(data, guess = .25, sort = NULL, group = NULL){
+plot_idiff <- function(data, guess = .25, sort = "orig", group = NULL){
   
   data <- if(class(data)[2] == "describe") data else psych::describe(data)
   
-  if(sort == "desc"){
-    
     data %>%
     as.data.frame() %>%
     tibble::rownames_to_column(., var="item") %>%
     dplyr::mutate(group = group) %>% 
-    dplyr::arrange(desc(mean)) %>%
     dplyr::mutate(item_n = paste0(item, "\n", "(n=", n, ")"),
-                  item_n = factor(item_n, levels = item_n, labels = item_n)) %>%
+                  item_n = if(sort == "asc"){fct_reorder(item_n, mean)} 
+                           else if(sort == "desc") {fct_reorder(item_n, desc(mean))} 
+                           else {item_n = item_n}) %>%
     ggplot2::ggplot(., aes(x=item_n, y=mean, color = group)) +
                     geom_point() +
                     coord_cartesian(ylim = c(0,1)) + 
                     scale_y_continuous(breaks=c(seq(0,1,0.1))) +
                     geom_hline(yintercept=guess, linetype = "dashed") +
-                    geom_errorbar(aes(ymin=mean-2*se, ymax=mean+2*se, width = 0.3)) +
-                    labs(x = "", y = "Item difficulty", caption = "Error bars = 2*SE") +
-                    theme_bw() +
-                    theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1))
-    
-  } else if (sort == "asc") {
-      
-    data %>%
-    as.data.frame() %>%
-    tibble::rownames_to_column(., var="item") %>%
-    dplyr::mutate(group = group) %>% 
-    dplyr::arrange(mean) %>%
-    dplyr::mutate(item_n = paste0(item, "\n", "(n=", n, ")"),
-                  item_n = factor(item_n, levels = item_n, labels = item_n)) %>%
-    ggplot2::ggplot(., aes(x=item_n, y=mean, color = group)) +
-                    geom_point() +
-                    coord_cartesian(ylim = c(0,1)) + 
-                    scale_y_continuous(breaks=c(seq(0,1,0.1))) +
-                    geom_hline(yintercept=guess, linetype = "dashed") +
-                    geom_errorbar(aes(ymin=mean-2*se, ymax=mean+2*se, width = 0.3)) +
-                    labs(x = "", y = "Item difficulty", caption = "Error bars = 2*SE") +
+                    geom_errorbar(aes(ymin=mean-1*se, ymax=mean+1*se, width = 0.3)) +
+                    labs(x = "", y = "Item difficulty", caption = "Error bars = 1*SE") +
                     theme_bw() +
                     theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1))
 
-  } else {
-
-    data %>%
-    as.data.frame() %>%
-    tibble::rownames_to_column(., var="item") %>%
-    dplyr::mutate(group = group) %>% 
-    dplyr::mutate(item_n = paste0(item, "\n", "(n=", n, ")"),
-                  item_n = factor(item_n, levels = item_n, labels = item_n)) %>%
-    ggplot2::ggplot(., aes(x=item_n, y=mean, color = group)) + 
-                    geom_point() + 
-                    coord_cartesian(ylim = c(0,1)) + 
-                    scale_y_continuous(breaks=c(seq(0,1,0.1))) +
-                    geom_hline(yintercept=guess, linetype = "dashed") + 
-                    geom_errorbar(aes(ymin=mean-2*se, ymax=mean+2*se, width = 0.3)) +
-                    labs(x = "", y = "Item difficulty", caption = "Error bars = 2*SE") +
-                    theme_bw() +
-                    theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1))
-            
-    }
 }
 
