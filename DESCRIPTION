@@ -16,6 +16,7 @@ Depends:
 Imports: 
     ggplot2 (>= 3.3.6),
     dplyr (>= 1.0.8),
+    forcats (>= 0.5.1),
     tibble (>= 3.0.0)
 URL: https://github.com/luc-w/auxfuns
 BugReports: https://github.com/luc-w/auxfuns/issues

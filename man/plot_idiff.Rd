@@ -20,7 +20,7 @@ groups will have different colors in the plot.}
 \item{obs}{Optional. Decides whether the number of observations is printed below the item label on the x-axis (Default: FALSE).}
 }
 \value{
-A plot of the means with associated errors bars (2*SE)
+A plot of the means with associated errors bars (1*SE)
 }
 \description{
 This function loads or creates an object from psych::describe() and plots the
