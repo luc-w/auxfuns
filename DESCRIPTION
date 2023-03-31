@@ -1,6 +1,6 @@
 Package: auxfuns
 Title: Auxilliary Functions for Psychometric Analysis
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Luc", "Watrin", , "luc.watrin@uni-ulm.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4343-3781"))
@@ -11,13 +11,11 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Depends: 
+    R (>= 4.0.0)
 Imports: 
-    dplyr,
-    ggeasy,
-    ggplot2,
-    magrittr,
-    psych,
-    tibble,
-    wCorr
+    ggplot2 (>= 3.3.6),
+    dplyr (>= 1.0.8),
+    tibble (>= 3.0.0)
 URL: https://github.com/luc-w/auxfuns
 BugReports: https://github.com/luc-w/auxfuns/issues

@@ -1,17 +1,19 @@
-#' Plot proportion correct (difficulty) scores of dichotomous variables
+#' @title Plot proportion correct (difficulty) scores of dichotomous variables
+#'
+#' @description
 #'
 #' This function loads or creates an object from psych::describe() and plots the
 #' mean variable with the associated error bars. The function can easily be
 #' extended with ggplot2 commands.
 #'
-#' @param data Either a data frame or the output of psych::describe()
+#' @param data Either a data frame containing (only) dichotomous variables or the output of psych::describe()
 #' @param guess Optional. Indicate the (theoretical) guessing probability.
-#' @param sort Optional. Decides whether the variables are plotted in their original order (default), in order of ascending ("asc")
-#'             or descending ("desc") mean values.
+#' @param sort Optional. Keep variables in the same order as in the dataset (default), order them ascending order ("asc") or or
+#'             or order them in descending order ("desc").
 #' @param group Optional. Character vector as long as the number of variables indicating their group. Item form different
 #'              groups will have different colors in the plot.
 #' @param obs Optional. Decides whether the number of observations is printed below the item label on the x-axis (Default: FALSE).
-#' @return A plot of the variable means with associated errors bars (1*SE)
+#' @return A plot of the means with associated errors bars (2*SE)
 #' @export
 
 
@@ -29,7 +31,7 @@ plot_idiff <- function(data, guess = .25, sort = "orig", group = NULL, obs = FAL
                   item = if(sort == "asc"){fct_reorder(item, mean)}
                          else if(sort == "desc") {fct_reorder(item, desc(mean))}
                          else {item}) %>%
-    ggplot2::ggplot(aes(x=item, y=mean, color = group)) +
+    ggplot2::ggplot(., aes(x=item, y=mean, color = group)) +
                     geom_point() +
                     coord_cartesian(ylim = c(0,1)) +
                     scale_y_continuous(breaks=c(seq(0,1,0.1))) +
