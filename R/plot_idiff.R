@@ -14,8 +14,9 @@
 #'              groups will have different colors in the plot.
 #' @param obs Optional. Decides whether the number of observations is printed below the item label on the x-axis (Default: FALSE).
 #' @return A plot of the means with associated errors bars (1*SE)
-#' @import  ggplot2
+#' @import ggplot2
 #' @import forcats
+#' @import dplyr
 #' @export
 
 
