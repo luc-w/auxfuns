@@ -10,12 +10,13 @@
 #'             or order them in descending order ("desc").
 #' @param group Optional. Character vector as long as the number of variables indicating their group. Item form different
 #'              groups will have different colors in the plot.
+#' @param obs Optional. Decides whether the number of observations is printed below the item label on the x-axis (Default: FALSE).
 #' @return A plot of the means with associated errors bars (2*SE)
 #' @export
 
 
 
-plot_idiff <- function(data, guess = .25, sort = "orig", group = NULL){
+plot_idiff <- function(data, guess = .25, sort = "orig", group = NULL, obs = FALSE){
   
   data <- if(class(data)[2] == "describe") data else psych::describe(data)
   
@@ -23,11 +24,12 @@ plot_idiff <- function(data, guess = .25, sort = "orig", group = NULL){
     as.data.frame() %>%
     tibble::rownames_to_column(., var="item") %>%
     dplyr::mutate(group = group) %>% 
-    dplyr::mutate(item_n = paste0(item, "\n", "(n=", n, ")"),
-                  item_n = if(sort == "asc"){fct_reorder(item_n, mean)} 
-                           else if(sort == "desc") {fct_reorder(item_n, desc(mean))} 
-                           else {item_n = item_n}) %>%
-    ggplot2::ggplot(., aes(x=item_n, y=mean, color = group)) +
+    dplyr::mutate(item = if(obs){paste0(item, "\n", "(n=", n, ")")}
+                         else {item},
+                  item = if(sort == "asc"){fct_reorder(item, mean)} 
+                         else if(sort == "desc") {fct_reorder(item, desc(mean))} 
+                         else {item}) %>%
+    ggplot2::ggplot(., aes(x=item, y=mean, color = group)) +
                     geom_point() +
                     coord_cartesian(ylim = c(0,1)) + 
                     scale_y_continuous(breaks=c(seq(0,1,0.1))) +
