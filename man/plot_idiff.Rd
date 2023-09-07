@@ -2,7 +2,11 @@
 % Please edit documentation in R/plot_idiff.R
 \name{plot_idiff}
 \alias{plot_idiff}
-\title{Plot proportion correct (difficulty) scores of dichotomous variables}
+\title{Plot proportion correct (difficulty) scores of dichotomous variables
+
+Loads or creates an object from psych::describe() and plots the
+mean variable with the associated error bars. Can easily be
+extended with ggplot2 commands.}
 \usage{
 plot_idiff(data, guess = 0.25, sort = "orig", group = NULL, obs = FALSE)
 }
@@ -23,7 +27,9 @@ groups will have different colors in the plot.}
 A plot of the means with associated errors bars (1*SE)
 }
 \description{
-This function loads or creates an object from psych::describe() and plots the
-mean variable with the associated error bars. The function can easily be
+Plot proportion correct (difficulty) scores of dichotomous variables
+
+Loads or creates an object from psych::describe() and plots the
+mean variable with the associated error bars. Can easily be
 extended with ggplot2 commands.
 }

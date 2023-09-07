@@ -2,7 +2,11 @@
 % Please edit documentation in R/plot_idiff_paired.R
 \name{plot_idiff_paired}
 \alias{plot_idiff_paired}
-\title{Plot proportion correct (difficulty) scores of dichotomous variables in two groups}
+\title{Plot proportion correct (difficulty) scores of dichotomous variables in two groups
+
+Loads or creates two objects from psych::describe() and plots the
+mean variables with the associated error bars. Can easily be
+extended with ggplot2 commands.}
 \usage{
 plot_idiff_paired(
   data1,
@@ -32,7 +36,9 @@ groups will have different colors in the plot.}
 A plot of the means with associated errors bars (1*SE)
 }
 \description{
-This function loads or creates two objects from psych::describe() and plots the
-mean variables with the associated error bars. The function can easily be
+Plot proportion correct (difficulty) scores of dichotomous variables in two groups
+
+Loads or creates two objects from psych::describe() and plots the
+mean variables with the associated error bars. Can easily be
 extended with ggplot2 commands.
 }

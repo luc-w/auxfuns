@@ -1,9 +1,8 @@
 #' @title Plot proportion correct (difficulty) scores of dichotomous variables in two groups
 #'
-#' @description
 #'
-#' This function loads or creates two objects from psych::describe() and plots the
-#' mean variables with the associated error bars. The function can easily be
+#' Loads or creates two objects from psych::describe() and plots the
+#' mean variables with the associated error bars. Can easily be
 #' extended with ggplot2 commands.
 #'
 #' @param data1 Either a data frame containing (only) dichotomous variables or the output of psych::describe() of group (or itemset) 1.
