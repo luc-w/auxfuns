@@ -10,7 +10,6 @@
 #' @return Correlation matrix with bootstrapped 95% confidence intervals.
 #' @import psych
 #' @export
-#'
 corr_ci <- function(data, digits = 2, export = FALSE, sep = ";"){
 
   r <- psych::cor.ci(data, plot = F)
