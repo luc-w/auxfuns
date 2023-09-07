@@ -1,4 +1,4 @@
-#' @title Plot proportion correct (difficulty) scores of dichotomous variables in two groups
+#' Plot proportion correct (difficulty) scores of dichotomous variables in two groups
 #'
 #'
 #' Loads or creates two objects from psych::describe() and plots the

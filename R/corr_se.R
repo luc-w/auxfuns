@@ -1,5 +1,6 @@
 #' Creates a correlation table with associated standard errors
 #'
+#'
 #' Creates a correlation matrix with associated SEs for easy export to Excel.
 #' Based on psych::corr.test().
 #'

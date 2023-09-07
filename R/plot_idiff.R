@@ -1,4 +1,5 @@
-#' @title Plot proportion correct (difficulty) scores of dichotomous variables
+#' Plot proportion correct (difficulty) scores of dichotomous variables
+#'
 #'
 #' Loads or creates an object from psych::describe() and plots the
 #' mean variable with the associated error bars. Can easily be
