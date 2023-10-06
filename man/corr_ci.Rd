@@ -4,10 +4,12 @@
 \alias{corr_ci}
 \title{Creates a correlation table with associated confidence intervals}
 \usage{
-corr_ci(data, digits = 2, export = FALSE, sep = ";")
+corr_ci(data, n.iter = 10000, digits = 2, export = FALSE, sep = ";")
 }
 \arguments{
 \item{data}{Data frame.}
+
+\item{n.iter}{Number of iterations to bootstrap over.}
 
 \item{digits}{Number of digits to print.}
 
@@ -19,6 +21,6 @@ corr_ci(data, digits = 2, export = FALSE, sep = ";")
 Correlation matrix with bootstrapped 95\% confidence intervals.
 }
 \description{
-Creates a correlation matrix with associated bootstrapped 95\% confidence invervals for easy export to Excel.
+Creates a correlation matrix with associated bootstrapped 95\% confidence intervals for easy export to Excel.
 Based on psych::cor.ci().
 }
