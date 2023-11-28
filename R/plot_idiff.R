@@ -32,7 +32,7 @@ plot_idiff <- function(data, guess = .25, sort = "orig", group = NULL, obs = FAL
                          else {item},
                   item = if(sort == "asc"){fct_reorder(item, mean)}
                          else if(sort == "desc") {fct_reorder(item, desc(mean))}
-                         else {item}) %>%
+                         else {factor(item, levels = item)}) %>%
     ggplot2::ggplot(., aes(x=item, y=mean, color = group)) +
                     geom_point() +
                     coord_cartesian(ylim = c(0,1)) +
@@ -41,7 +41,8 @@ plot_idiff <- function(data, guess = .25, sort = "orig", group = NULL, obs = FAL
                     geom_errorbar(aes(ymin=mean-1*se, ymax=mean+1*se, width = 0.3)) +
                     labs(x = "", y = "Item difficulty", caption = "Error bars = 1*SE") +
                     theme_bw() +
-                    theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1))
+                    theme(text = element_text(size = 14),
+                          axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 }
 
