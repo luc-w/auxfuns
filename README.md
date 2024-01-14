@@ -3,7 +3,7 @@
 
 A package comprising a hand full of functions facilitating (psychometric) test analysis and manuscript preparation. 
 
-#### GitHub version `sirt` 4.0-27 (2024-01-08)
+#### GitHub version
 
 The GitHub version can be installed using `devtools` as:
 
