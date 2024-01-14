@@ -71,4 +71,5 @@ plot_idiff_paired <- function(data1, data2, guess = .25, sort = "orig", group = 
         axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),
         legend.title=element_blank())
 
+
 }
